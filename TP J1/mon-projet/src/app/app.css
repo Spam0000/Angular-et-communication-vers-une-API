@@ -7,10 +7,22 @@
 	min-height: 100vh;
 	padding: 2rem 1rem;
 	background: radial-gradient(circle at top, #d8e9ff 0%, #eef4fb 45%, #f9fbff 100%);
+	display: flex;
+	flex-direction: column;
 }
 
 h1 {
 	text-align: center;
 	margin: 0 0 1rem;
 	color: #1f2a44;
+}
+
+.app-footer {
+	margin-top: auto;
+	padding-top: 2rem;
+	text-align: center;
+	color: #00ffff;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }

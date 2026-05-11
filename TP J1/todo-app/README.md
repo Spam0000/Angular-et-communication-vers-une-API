@@ -4,6 +4,15 @@ Une application **TodoList complète** pour maîtriser les fondamentaux d'Angula
 
 ## 🎯 Résultat final
 
+![TodoList Présentation de l'interface](./Precision%20de%20L%27Interface.png)
+
+Cette vue met en avant les principaux éléments de l'interface :
+
+1. Le compteur des tâches restantes
+2. Le compteur des tâches terminées
+3. Le bouton d'effacement rapide des tâches terminées
+4. La palette de couleurs de la page et la charte graphique générale
+
 ![TodoList Résultat](./Resultat%20Projet%20Finale.png)
 
 **Caractéristiques visuelles**:
@@ -135,3 +144,5 @@ ng serve --configuration production
 ---
 
 **Formation Angular — TP 2 Jour 2** ✨
+
+Made by Spam

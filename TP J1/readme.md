@@ -491,3 +491,5 @@ La TodoList s'ouvre sur `http://localhost:4200`. Essayez d'ajouter, filtrer et m
 **Bonne chance!** 🎉
 
 Créé pour la formation Angular — Jour 1 & 2
+
+Made by Spam
