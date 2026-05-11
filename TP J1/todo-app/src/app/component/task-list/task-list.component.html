@@ -43,4 +43,21 @@
       </ul>
     }
   }
+
+  @if (stats$ | async; as stats) {
+    <div class="task-summary">
+      <div class="counters">
+        <span class="counter">{{ stats.remaining }} tache(s) restante(s)</span>
+        <span class="counter">{{ stats.done }} tache(s) terminee(s)</span>
+      </div>
+
+      <button
+        type="button"
+        class="clear-completed-btn"
+        (click)="onClearCompleted()"
+        [disabled]="stats.done === 0">
+        Effacer les terminees
+      </button>
+    </div>
+  }
 </div>

@@ -42,4 +42,9 @@ export class TaskService {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this.tasksSubject.next(this.tasks);
   }
+
+  clearCompletedTasks(): void {
+    this.tasks = this.tasks.filter((task) => !task.done);
+    this.tasksSubject.next(this.tasks);
+  }
 }

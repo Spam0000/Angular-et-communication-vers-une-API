@@ -20,8 +20,19 @@ export class TaskListComponent {
   private readonly filterSubject = new BehaviorSubject<Filter>('all');
   readonly filter$ = this.filterSubject.asObservable();
 
+  readonly tasks$ = this.taskService.getTasks();
+
+  readonly stats$ = this.tasks$.pipe(
+    map((tasks) => {
+      const done = tasks.filter((task) => task.done).length;
+      const remaining = tasks.length - done;
+
+      return { remaining, done };
+    })
+  );
+
   readonly filteredTasks$: Observable<Task[]> = combineLatest([
-    this.taskService.getTasks(),
+    this.tasks$,
     this.filter$
   ]).pipe(
     map(([tasks, filter]) => {
@@ -51,5 +62,9 @@ export class TaskListComponent {
 
   onDelete(id: number): void {
     this.taskService.deleteTask(id);
+  }
+
+  onClearCompleted(): void {
+    this.taskService.clearCompletedTasks();
   }
 }
