@@ -1,0 +1,16 @@
+:host {
+	display: block;
+	min-height: 100vh;
+}
+
+.page {
+	min-height: 100vh;
+	padding: 2rem 1rem;
+	background: radial-gradient(circle at top, #d8e9ff 0%, #eef4fb 45%, #f9fbff 100%);
+}
+
+h1 {
+	text-align: center;
+	margin: 0 0 1rem;
+	color: #1f2a44;
+}
