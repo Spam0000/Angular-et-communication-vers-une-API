@@ -1,4 +1,4 @@
-# 📚 Formation Angular — TP Jour 1 & 2
+# 📚 Formation Angular — TP Jour 1
 
 Bienvenue! Ce dossier contient deux projets Angular qui couvrent les fondamentaux de la plateforme: de l'installation aux services réactifs avec **RxJS**.
 
