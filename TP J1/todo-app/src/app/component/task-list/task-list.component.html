@@ -1,0 +1,46 @@
+<div class="container">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Dashboard</p>
+      <h1>Ma TodoList</h1>
+      <p class="subtitle">Une vraie liste propre, lisible et elegante.</p>
+    </div>
+
+    <div class="swatches" aria-label="Nuancier violet et rose">
+      <span class="swatch swatch-violet-900"></span>
+      <span class="swatch swatch-violet-700"></span>
+      <span class="swatch swatch-pink-300"></span>
+      <span class="swatch swatch-pink-200"></span>
+    </div>
+  </header>
+
+  <app-task-form (add)="onAdd($event)"></app-task-form>
+
+  <div class="filters">
+    <button type="button" (click)="setFilter('all')" [class.active]="(filter$ | async) === 'all'">
+      Toutes
+    </button>
+    <button type="button" (click)="setFilter('active')" [class.active]="(filter$ | async) === 'active'">
+      Actives
+    </button>
+    <button type="button" (click)="setFilter('done')" [class.active]="(filter$ | async) === 'done'">
+      Terminees
+    </button>
+  </div>
+
+  @if (filteredTasks$ | async; as tasks) {
+    @if (tasks.length === 0) {
+      <p class="empty">Aucune tache a afficher.</p>
+    } @else {
+      <ul class="task-list">
+        @for (task of tasks; track task.id) {
+          <app-task-item
+            [task]="task"
+            (toggle)="onToggle($event)"
+            (delete)="onDelete($event)">
+          </app-task-item>
+        }
+      </ul>
+    }
+  }
+</div>

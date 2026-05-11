@@ -1,0 +1,126 @@
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fde9f6 0%, #f8d3eb 28%, #5f2a76 100%);
+  border: 1px solid rgb(95 42 118 / 15%);
+  box-shadow: 0 24px 50px rgb(38 16 51 / 16%);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 4px 0;
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+    color: var(--violet-900);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--violet-700);
+}
+
+.subtitle {
+  margin: 0;
+  color: #542f65;
+}
+
+.swatches {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 55%);
+  border: 1px solid rgb(95 42 118 / 16%);
+}
+
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 70%);
+}
+
+.swatch-violet-900 {
+  background: var(--violet-900);
+}
+
+.swatch-violet-700 {
+  background: var(--violet-700);
+}
+
+.swatch-pink-300 {
+  background: var(--pink-300);
+}
+
+.swatch-pink-200 {
+  background: var(--pink-200);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+
+  button {
+    flex: 1;
+    padding: 10px 12px;
+    background: var(--pink-100);
+    color: var(--violet-900);
+    border: 1px solid rgb(95 42 118 / 18%);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgb(38 16 51 / 14%);
+    }
+
+    &.active {
+      background: linear-gradient(90deg, var(--violet-800) 0%, var(--violet-700) 100%);
+      color: var(--white);
+      border-color: transparent;
+    }
+  }
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 32px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 70%);
+  border: 1px dashed rgb(95 42 118 / 22%);
+}
+
+@media (max-width: 700px) {
+  .container {
+    margin: 0 12px;
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
