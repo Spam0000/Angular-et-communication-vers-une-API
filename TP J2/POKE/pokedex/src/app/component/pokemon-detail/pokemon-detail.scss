@@ -1,0 +1,137 @@
+.back {
+	display: inline-block;
+	margin-bottom: 16px;
+	color: var(--violet-700);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.detail {
+	background: rgb(255 255 255 / 88%);
+	border: 1px solid rgb(95 42 118 / 16%);
+	border-radius: 16px;
+	padding: 24px;
+	text-align: center;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header h1 {
+	margin: 0;
+	text-transform: capitalize;
+	color: var(--violet-900);
+}
+
+.header small {
+	color: var(--text-soft);
+}
+
+.fav {
+	border: 1px solid rgb(95 42 118 / 24%);
+	background: var(--pink-100);
+	color: var(--violet-900);
+	padding: 8px 14px;
+	border-radius: 12px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.fav:hover {
+	background: var(--pink-200);
+}
+
+.artwork {
+	width: 220px;
+	height: 220px;
+	object-fit: contain;
+}
+
+.types {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin: 12px 0;
+}
+
+.type {
+	text-transform: capitalize;
+	background: var(--pink-100);
+	border: 1px solid rgb(95 42 118 / 16%);
+	padding: 4px 12px;
+	border-radius: 999px;
+	font-size: 13px;
+	color: var(--violet-900);
+}
+
+.infos {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	gap: 24px;
+}
+
+.stats {
+	list-style: none;
+	padding: 0;
+	max-width: 460px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.stats li {
+	display: grid;
+	grid-template-columns: 120px 1fr 40px;
+	align-items: center;
+	gap: 8px;
+	margin: 6px 0;
+}
+
+.label {
+	text-transform: capitalize;
+	font-size: 13px;
+	color: var(--text-soft);
+}
+
+.bar {
+	background: rgb(95 42 118 / 16%);
+	border-radius: 6px;
+	height: 10px;
+	overflow: hidden;
+}
+
+.fill {
+	display: block;
+	height: 100%;
+	background: linear-gradient(90deg, var(--violet-800) 0%, var(--violet-700) 100%);
+}
+
+.val {
+	text-align: right;
+	font-size: 13px;
+}
+
+.info {
+	text-align: center;
+	color: var(--text-soft);
+	padding: 32px;
+	border-radius: 14px;
+	background: rgb(255 255 255 / 70%);
+	border: 1px dashed rgb(95 42 118 / 22%);
+}
+
+@media (max-width: 700px) {
+	.header {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.infos {
+		flex-direction: column;
+		gap: 8px;
+	}
+}
