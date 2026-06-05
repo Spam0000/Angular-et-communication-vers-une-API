@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "nom": "Sara Idrissi",
+      "email": "sara@mail.com",
+      "tel": "0612345678"
+    },
+    {
+      "id": 2,
+      "nom": "Yanis Berton",
+      "email": "yanis@mail.com",
+      "tel": "0698765432"
+    }
+  ]
+}

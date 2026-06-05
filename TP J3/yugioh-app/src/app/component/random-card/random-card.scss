@@ -1,0 +1,36 @@
+.back {
+  text-decoration: none;
+  color: #1f2937;
+}
+
+.reroll {
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #f59e0b;
+  color: #111827;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.random {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 16px;
+}
+
+.random img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .random {
+    grid-template-columns: 1fr;
+  }
+
+  .random img {
+    max-width: 320px;
+  }
+}

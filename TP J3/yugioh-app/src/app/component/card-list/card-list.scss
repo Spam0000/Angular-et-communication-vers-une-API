@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.deck-link {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.actions-top {
+  display: flex;
+  gap: 14px;
+}
+
+.filtres {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto auto;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtres input,
+.filtres select,
+.filtres button {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.filtres button {
+  cursor: pointer;
+  border: none;
+  background: #111827;
+  color: #ffffff;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.carte {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.carte img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carte h3 {
+  font-size: 0.95rem;
+  min-height: 44px;
+}
+
+.carte button {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #f59e0b;
+  color: #111827;
+  font-weight: 700;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.carte button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.info {
+  color: #4b5563;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .filtres {
+    grid-template-columns: 1fr;
+  }
+}

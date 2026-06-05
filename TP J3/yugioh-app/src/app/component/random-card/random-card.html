@@ -1,0 +1,16 @@
+<a routerLink="/" class="back">Retour a la liste</a>
+<h1>Carte aleatoire</h1>
+<button class="reroll" (click)="tirer()">Tirer une autre carte</button>
+
+@if (loading()) {
+  <p>Chargement...</p>
+} @else if (card(); as c) {
+  <article class="random">
+    <img [src]="c.card_images[0].image_url" [alt]="c.name" />
+    <div>
+      <h2>{{ c.name }}</h2>
+      <p>{{ c.type }} @if (c.attribute) { · {{ c.attribute }} }</p>
+      <p>{{ c.desc }}</p>
+    </div>
+  </article>
+}

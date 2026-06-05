@@ -1,0 +1,54 @@
+<div class="manager">
+	<h1>Carnet de contacts</h1>
+
+	<form
+		class="form"
+		(submit)="$event.preventDefault();
+			enregistrer({ nom: nomInput.value, email: emailInput.value, tel: telInput.value });
+			nomInput.value = '';
+			emailInput.value = '';
+			telInput.value = ''"
+	>
+		<h3>{{ enEdition() ? 'Modifier' : 'Nouveau contact' }}</h3>
+
+		<input #nomInput type="text" placeholder="Nom" [value]="enEdition()?.nom ?? ''" required />
+		<input
+			#emailInput
+			type="email"
+			placeholder="Email"
+			[value]="enEdition()?.email ?? ''"
+			required
+		/>
+		<input #telInput type="tel" placeholder="Tel" [value]="enEdition()?.tel ?? ''" />
+
+		<div class="actions">
+			<button type="submit">{{ enEdition() ? 'Mettre a jour' : 'Ajouter' }}</button>
+			@if (enEdition()) {
+				<button type="button" class="ghost" (click)="annulerEdition()">Annuler</button>
+			}
+		</div>
+	</form>
+
+	@if (loading()) {
+		<p class="info">Chargement...</p>
+	} @else if (error()) {
+		<p class="error">{{ error() }} <button (click)="charger()">Reessayer</button></p>
+	} @else {
+		<ul class="liste">
+			@for (contact of contacts(); track contact.id) {
+				<li>
+					<div class="infos">
+						<strong>{{ contact.nom }}</strong>
+						<span>{{ contact.email }} · {{ contact.tel }}</span>
+					</div>
+					<div class="boutons">
+						<button (click)="editer(contact)">Modifier</button>
+						<button class="danger" (click)="supprimer(contact)">Supprimer</button>
+					</div>
+				</li>
+			} @empty {
+				<li class="info">Aucun contact. Ajoute le premier.</li>
+			}
+		</ul>
+	}
+</div>

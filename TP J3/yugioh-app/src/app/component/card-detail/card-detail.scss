@@ -1,0 +1,32 @@
+.back {
+  display: inline-block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: #1f2937;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.detail img {
+  border-radius: 12px;
+  width: 100%;
+}
+
+.desc {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 860px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+
+  .detail img {
+    max-width: 320px;
+  }
+}

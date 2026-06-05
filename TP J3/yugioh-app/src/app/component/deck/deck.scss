@@ -1,0 +1,43 @@
+.back {
+  text-decoration: none;
+  color: #1f2937;
+}
+
+.clear {
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.deck {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deck li {
+  display: grid;
+  grid-template-columns: 56px 1fr auto auto auto;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.qte {
+  font-weight: 700;
+}
+
+.deck button {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  cursor: pointer;
+  padding: 6px 8px;
+}
