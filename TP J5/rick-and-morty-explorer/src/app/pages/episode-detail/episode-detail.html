@@ -1,0 +1,25 @@
+<section>
+	<h2>Detail episode</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" />
+		} @else if (vm.episode) {
+			<article class="box">
+				<h3>{{ vm.episode.episode }} - {{ vm.episode.name }}</h3>
+				<p>Diffusion: {{ vm.episode.air_date }}</p>
+			</article>
+
+			<h3>Personnages de l'episode</h3>
+			<div class="link-list">
+				@for (character of vm.characters; track character.id) {
+					<a [routerLink]="['/characters', character.id]">{{ character.name }} - {{ character.species | truncate:40 }}</a>
+				} @empty {
+					<p>Aucun personnage associe.</p>
+				}
+			</div>
+		}
+	}
+</section>

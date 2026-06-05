@@ -1,0 +1,44 @@
+<section>
+	<h2>Personnages</h2>
+
+	<div class="toolbar">
+		<app-search-bar (search)="onSearch($event)" />
+
+		<label>
+			<span>Status</span>
+			<select (change)="onStatusChange($event)">
+				<option value="">Tous</option>
+				<option value="alive">Alive</option>
+				<option value="dead">Dead</option>
+				<option value="unknown">unknown</option>
+			</select>
+		</label>
+	</div>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" (retry)="retry()" />
+		} @else if (vm.response) {
+			<div class="card-grid">
+				@for (character of vm.response.results; track character.id) {
+					<app-character-card
+						[character]="character"
+						[isFavori]="favoris.isFavori(character.id)"
+						(toggleFavori)="favoris.toggle($event)"
+					/>
+				} @empty {
+					<p>Aucun personnage trouve.</p>
+				}
+			</div>
+
+			<app-paginator
+				[currentPage]="vm.page"
+				[totalPages]="vm.response.info.pages"
+				(prev)="previousPage()"
+				(next)="nextPage(vm.response.info.pages)"
+			/>
+		}
+	}
+</section>

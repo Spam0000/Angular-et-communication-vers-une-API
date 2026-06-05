@@ -1,0 +1,47 @@
+<section>
+	<h2>Detail personnage</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" />
+		} @else if (vm.character) {
+			<article class="hero">
+				<img [src]="vm.character.image" [alt]="vm.character.name" />
+				<div>
+					<h3>{{ vm.character.name }}</h3>
+					<p>{{ vm.character.status | status }}</p>
+					<p>{{ vm.character.species }} - {{ vm.character.gender }}</p>
+
+					@if (vm.character.origin.url) {
+						<p>
+							Origine:
+							<a [routerLink]="['/locations', toId(vm.character.origin.url)]">{{ vm.character.origin.name }}</a>
+						</p>
+					} @else {
+						<p>Origine: {{ vm.character.origin.name }}</p>
+					}
+
+					@if (vm.character.location.url) {
+						<p>
+							Lieu actuel:
+							<a [routerLink]="['/locations', toId(vm.character.location.url)]">{{ vm.character.location.name }}</a>
+						</p>
+					} @else {
+						<p>Lieu actuel: {{ vm.character.location.name }}</p>
+					}
+				</div>
+			</article>
+
+			<h3>Episodes lies</h3>
+			<div class="link-list">
+				@for (episode of vm.episodes; track episode.id) {
+					<a [routerLink]="['/episodes', episode.id]">{{ episode.episode }} - {{ episode.name }}</a>
+				} @empty {
+					<p>Aucun episode associe.</p>
+				}
+			</div>
+		}
+	}
+</section>

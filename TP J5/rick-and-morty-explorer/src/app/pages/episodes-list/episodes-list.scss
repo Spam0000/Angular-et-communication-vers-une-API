@@ -1,0 +1,23 @@
+.list {
+	display: grid;
+	gap: 0.7rem;
+}
+
+.item {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	background: #fff;
+	padding: 0.8rem;
+}
+
+h3 {
+	margin: 0;
+}
+
+p {
+	margin: 0.35rem 0 0;
+	color: #4b5563;
+}

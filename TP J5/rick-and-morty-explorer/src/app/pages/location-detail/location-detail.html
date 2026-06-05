@@ -1,0 +1,26 @@
+<section>
+	<h2>Detail lieu</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" />
+		} @else if (vm.location) {
+			<article class="box">
+				<h3>{{ vm.location.name }}</h3>
+				<p>Type: {{ vm.location.type }}</p>
+				<p>Dimension: {{ vm.location.dimension }}</p>
+			</article>
+
+			<h3>Residents</h3>
+			<div class="link-list">
+				@for (resident of vm.residents; track resident.id) {
+					<a [routerLink]="['/characters', resident.id]">{{ resident.name }} - {{ resident.species | truncate:30 }}</a>
+				} @empty {
+					<p>Aucun resident trouve.</p>
+				}
+			</div>
+		}
+	}
+</section>

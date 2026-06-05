@@ -1,0 +1,5 @@
+<div class="paginator">
+	<button type="button" (click)="prev.emit()" [disabled]="currentPage() <= 1">Precedent</button>
+	<span>Page {{ currentPage() }} / {{ totalPages() }}</span>
+	<button type="button" (click)="next.emit()" [disabled]="currentPage() >= totalPages()">Suivant</button>
+</div>

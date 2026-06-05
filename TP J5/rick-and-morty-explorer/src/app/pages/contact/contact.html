@@ -1,0 +1,44 @@
+<section>
+	<h2>Contact</h2>
+
+	<form [formGroup]="form" (ngSubmit)="submit()" class="contact-form">
+		<label>
+			Nom
+			<input type="text" formControlName="nom" />
+			@if (form.controls.nom.touched && form.controls.nom.errors?.['required']) {
+				<small>Le nom est obligatoire.</small>
+			}
+			@if (form.controls.nom.touched && form.controls.nom.errors?.['minlength']) {
+				<small>Minimum 3 caracteres.</small>
+			}
+		</label>
+
+		<label>
+			Email
+			<input type="email" formControlName="email" />
+			@if (form.controls.email.touched && form.controls.email.errors?.['required']) {
+				<small>L'email est obligatoire.</small>
+			}
+			@if (form.controls.email.touched && form.controls.email.errors?.['email']) {
+				<small>Format email invalide.</small>
+			}
+		</label>
+
+		<label>
+			Message
+			<textarea rows="5" formControlName="message"></textarea>
+			@if (form.controls.message.touched && form.controls.message.errors?.['required']) {
+				<small>Le message est obligatoire.</small>
+			}
+			@if (form.controls.message.touched && form.controls.message.errors?.['minlength']) {
+				<small>Minimum 10 caracteres.</small>
+			}
+		</label>
+
+		<button type="submit" [disabled]="form.invalid">Envoyer</button>
+	</form>
+
+	@if (success()) {
+		<p class="ok">Message envoye avec succes.</p>
+	}
+</section>

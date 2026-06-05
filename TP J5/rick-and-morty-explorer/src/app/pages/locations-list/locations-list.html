@@ -1,0 +1,27 @@
+<section>
+	<h2>Lieux</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" (retry)="retry()" />
+		} @else if (vm.response) {
+			<div class="list">
+				@for (location of vm.response.results; track location.id) {
+					<a class="item" [routerLink]="['/locations', location.id]">
+						<h3>{{ location.name }}</h3>
+						<p>{{ location.type }} - {{ location.dimension }}</p>
+					</a>
+				}
+			</div>
+
+			<app-paginator
+				[currentPage]="vm.page"
+				[totalPages]="vm.response.info.pages"
+				(prev)="previousPage()"
+				(next)="nextPage(vm.response.info.pages)"
+			/>
+		}
+	}
+</section>

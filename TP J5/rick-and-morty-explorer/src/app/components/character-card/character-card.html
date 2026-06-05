@@ -1,0 +1,14 @@
+<article class="character-card">
+	<img [src]="character().image" [alt]="character().name" />
+
+	<div class="body">
+		<h3>{{ character().name }}</h3>
+		<p>{{ character().status | status }}</p>
+		<p>{{ character().species }} - {{ character().gender }}</p>
+
+		<div class="actions">
+			<a [routerLink]="['/characters', character().id]">Voir detail</a>
+			<button type="button" (click)="onToggle()">{{ isFavori() ? '⭐ Retirer' : '☆ Favori' }}</button>
+		</div>
+	</div>
+</article>

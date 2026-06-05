@@ -1,0 +1,43 @@
+<section>
+	<h2>Dashboard</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.error) {
+			<app-error-message [message]="vm.error" />
+		} @else {
+			<div class="stats">
+				<article>
+					<h3>Personnages</h3>
+					<p>{{ vm.totals.characters }}</p>
+				</article>
+				<article>
+					<h3>Lieux</h3>
+					<p>{{ vm.totals.locations }}</p>
+				</article>
+				<article>
+					<h3>Episodes</h3>
+					<p>{{ vm.totals.episodes }}</p>
+				</article>
+				<article>
+					<h3>Favoris</h3>
+					<p>{{ favorisService.nombre() }}</p>
+				</article>
+			</div>
+
+			<div class="stats second">
+				<article>
+					<h3>Favoris vivants</h3>
+					<p>{{ favorisService.repartitionParStatus().Alive }}</p>
+				</article>
+				<article>
+					<h3>Favoris morts</h3>
+					<p>{{ favorisService.repartitionParStatus().Dead }}</p>
+				</article>
+				<article>
+					<h3>Favoris inconnus</h3>
+					<p>{{ favorisService.repartitionParStatus().unknown }}</p>
+				</article>
+			</div>
+		}
+	}
+</section>

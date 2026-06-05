@@ -1,0 +1,27 @@
+<section>
+	<h2>Episodes</h2>
+
+	@if (vm$ | async; as vm) {
+		@if (vm.loading) {
+			<app-loader />
+		} @else if (vm.error) {
+			<app-error-message [message]="vm.error" />
+		} @else if (vm.response) {
+			<div class="list">
+				@for (episode of vm.response.results; track episode.id) {
+					<a class="item" [routerLink]="['/episodes', episode.id]">
+						<h3>{{ episode.episode }} - {{ episode.name }}</h3>
+						<p>Diffusion: {{ episode.air_date }}</p>
+					</a>
+				}
+			</div>
+
+			<app-paginator
+				[currentPage]="vm.page"
+				[totalPages]="vm.response.info.pages"
+				(prev)="previousPage()"
+				(next)="nextPage(vm.response.info.pages)"
+			/>
+		}
+	}
+</section>

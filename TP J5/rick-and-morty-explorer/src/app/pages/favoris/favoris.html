@@ -1,0 +1,17 @@
+<section>
+	<h2>Favoris</h2>
+
+	<p>Total: {{ favorisService.nombre() }}</p>
+
+	<div class="card-grid">
+		@for (character of favorisService.favoris(); track character.id) {
+			<app-character-card
+				[character]="character"
+				[isFavori]="true"
+				(toggleFavori)="favorisService.toggle($event)"
+			/>
+		} @empty {
+			<p>Tu n'as pas encore de favori.</p>
+		}
+	</div>
+</section>
