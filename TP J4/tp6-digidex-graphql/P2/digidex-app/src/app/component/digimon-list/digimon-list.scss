@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.search input,
+.search button {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.search button {
+  border: none;
+  background: #7c3aed;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.carte {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.carte a {
+  text-decoration: none;
+  color: #111827;
+}
+
+.carte img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carte button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #f59e0b;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pagination button {
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: #b91c1c;
+}

@@ -1,0 +1,39 @@
+<h1>DigiDex <small>({{ favoris.nombre() }} etoiles)</small></h1>
+
+<form class="search" (submit)="$event.preventDefault(); rechercher()">
+  <input
+    [ngModel]="recherche()"
+    (ngModelChange)="recherche.set($event)"
+    name="q"
+    placeholder="Rechercher un Digimon..."
+  />
+  <button>Rechercher</button>
+</form>
+
+@if (loading()) {
+  <p>Chargement...</p>
+} @else if (error()) {
+  <p class="error">{{ error() }} <button (click)="charger()">Reessayer</button></p>
+} @else if (page(); as p) {
+  <div class="grille">
+    @for (d of p.items; track d.id) {
+      <article class="carte">
+        <a [routerLink]="['/digimon', d.id]">
+          <img [src]="d.image" [alt]="d.name" />
+          <h3>{{ d.name }}</h3>
+        </a>
+        <button (click)="favoris.toggle(d)">
+          {{ favoris.estFavori(d.id) ? 'Etoile' : 'Ajouter favori' }}
+        </button>
+      </article>
+    } @empty {
+      <p>Aucun Digimon trouve.</p>
+    }
+  </div>
+
+  <nav class="pagination">
+    <button (click)="pagePrecedente()" [disabled]="pageCourante() === 0">Precedent</button>
+    <span>Page {{ p.currentPage + 1 }} / {{ p.totalPages }}</span>
+    <button (click)="pageSuivante()" [disabled]="pageCourante() + 1 >= p.totalPages">Suivant</button>
+  </nav>
+}
